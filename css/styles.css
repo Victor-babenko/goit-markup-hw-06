@@ -90,12 +90,19 @@ a {
 .hero {
     background-color: #2e2f42;
     padding: 72px 0;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people.jpg');
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-mobile.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     max-width: 320px;
     margin: 0 auto;
+}
+
+/* Retina для мобільного Hero */
+@media (min-resolution: 192dpi) {
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-mobile@2x.jpg');
+    }
 }
 
 .hero-container {
@@ -104,7 +111,6 @@ a {
     align-items: center;
 }
 
-/* Виправлено: margin-bottom 72px на мобільному */
 .hero-title {
     max-width: 216px;
     margin: 0 auto 72px;
@@ -170,24 +176,23 @@ a {
     display: none;
 }
 
-/* Виправлено: font-weight: 700 (bold) на мобільному, вирівнювання зліва */
+/* Виправлено: text-align: center на мобільному */
 .features-title {
     font-weight: 700;
     font-size: 36px;
     line-height: 1.11;
     letter-spacing: 0.02em;
-    text-align: left;
+    text-align: center;
     color: #2e2f42;
     margin-bottom: 8px;
 }
 
-/* Виправлено: вирівнювання зліва */
 .features-description {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    text-align: left;
+    text-align: center;
     color: #434455;
 }
 
@@ -308,8 +313,11 @@ a {
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-card:hover {
-    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+/* Тінь тільки на десктопі при ховері */
+@media (min-width: 1158px) {
+    .portfolio-card:hover {
+        box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+    }
 }
 
 .portfolio-image-wrapper {
@@ -522,11 +530,18 @@ a {
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    padding: 72px 24px 40px 40px;
 }
 
 .mobile-menu.is-open {
     transform: translateX(0);
+}
+
+.mobile-menu-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 72px 24px 40px 40px;
+    position: relative;
 }
 
 .mobile-menu__close {
@@ -600,7 +615,6 @@ a {
     gap: 40px;
 }
 
-/* Іконки 24×24 в мобільному меню */
 .mobile-menu__socials .social-link svg {
     width: 24px;
     height: 24px;
@@ -616,7 +630,7 @@ a {
     }
 }
 
-/* ============ МОДАЛКА (виправлено для мобільних) ============ */
+/* ============ МОДАЛКА ============ */
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -640,7 +654,6 @@ a {
     pointer-events: auto;
 }
 
-/* Виправлено: ширина 288px на мобільному, відступи 16px */
 .modal-container {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
     background-color: #fcfcfc;
@@ -844,6 +857,11 @@ a {
         padding: 0 16px;
     }
 
+    /* Відступ між логотипом та навігацією */
+    .header-logo {
+        margin-right: 76px;
+    }
+
     .nav-list {
         display: flex;
         align-items: center;
@@ -858,6 +876,7 @@ a {
         line-height: 1.5;
         letter-spacing: 0.02em;
         color: #2e2f42;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-link.current {
@@ -874,6 +893,11 @@ a {
         height: 4px;
         background-color: #404bbf;
         border-radius: 2px;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+        color: #404bbf;
     }
 
     .contacts {
@@ -906,19 +930,27 @@ a {
         display: none;
     }
 
+    /* Hero tablet */
     .hero {
         padding: 112px 0;
         max-width: 768px;
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-tablet.jpg');
     }
 
-    /* Виправлено: margin-bottom 48px на планшеті */
+    @media (min-resolution: 192dpi) {
+        .hero {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-tablet@2x.jpg');
+        }
+    }
+
     .hero-title {
         max-width: 496px;
-        margin-bottom: 48px;
+        margin-bottom: 72px;
         font-size: 56px;
         line-height: 1.07;
     }
 
+    /* Features tablet */
     .our-features-list {
         flex-direction: row;
         flex-wrap: wrap;
@@ -931,15 +963,17 @@ a {
     }
 
     .features-title {
+        text-align: left;
         font-size: 36px;
         line-height: 1.11;
     }
 
-    /* Виправлено: на планшеті font-weight: 500 */
     .features-description {
+        text-align: left;
         font-weight: 500;
     }
 
+    /* Team tablet */
     .team-container {
         max-width: 584px;
     }
@@ -956,6 +990,7 @@ a {
         margin: 0;
     }
 
+    /* Portfolio tablet */
     .portfolio-list {
         flex-direction: row;
         flex-wrap: wrap;
@@ -966,6 +1001,7 @@ a {
         width: calc((100% - 24px) / 2);
     }
 
+    /* Footer tablet */
     .footer-container {
         flex-direction: row;
         flex-wrap: wrap;
@@ -999,6 +1035,11 @@ a {
         padding: 0 15px;
     }
 
+    /* Відступ між логотипом та навігацією на десктопі */
+    .header-logo {
+        margin-right: 76px;
+    }
+
     .contacts-list {
         flex-direction: row;
         gap: 40px;
@@ -1011,15 +1052,24 @@ a {
         letter-spacing: 0.02em;
     }
 
+    /* Hero desktop */
     .hero {
         padding: 188px 0;
         max-width: 1440px;
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people.jpg');
+    }
+
+    @media (min-resolution: 192dpi) {
+        .hero {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people@2x.jpg');
+        }
     }
 
     .hero-title {
         margin-bottom: 48px;
     }
 
+    /* Features desktop */
     .our-features {
         padding: 120px 0;
     }
@@ -1049,13 +1099,15 @@ a {
         font-size: 20px;
         line-height: 1.2;
         font-weight: 500;
+        text-align: left;
     }
 
-    /* Виправлено: на десктопі font-weight: 400 */
     .features-description {
         font-weight: 400;
+        text-align: left;
     }
 
+    /* Team desktop */
     .team-container {
         max-width: 1158px;
     }
@@ -1073,6 +1125,7 @@ a {
         padding: 120px 0;
     }
 
+    /* Portfolio desktop */
     .our-portfolio {
         padding: 120px 0;
     }
@@ -1081,6 +1134,7 @@ a {
         width: calc((100% - 48px) / 3);
     }
 
+    /* Footer desktop */
     .page-footer {
         padding: 100px 0;
     }
