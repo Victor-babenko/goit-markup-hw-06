@@ -90,12 +90,19 @@ a {
 .hero {
     background-color: #2e2f42;
     padding: 72px 0;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people.jpg');
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-mobile.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     max-width: 320px;
     margin: 0 auto;
+}
+
+/* Retina для мобільного Hero */
+@media (min-resolution: 192dpi) {
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-mobile@2x.jpg');
+    }
 }
 
 .hero-container {
@@ -389,8 +396,9 @@ a {
     gap: 72px;
 }
 
+/* Виправлено: текст футера по лівому краю на мобільному */
 .footer-text-block {
-    text-align: center;
+    text-align: left;
     max-width: 264px;
 }
 
@@ -577,14 +585,15 @@ a {
     color: #4d5ae5;
 }
 
+/* Виправлено: address замість div */
 .mobile-menu__contacts {
     margin-bottom: 48px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    font-style: normal;
 }
 
-/* Виправлено: типографіка телефону та email */
 .mobile-menu__tel {
     font-weight: 500;
     font-size: 20px;
@@ -848,7 +857,6 @@ a {
         padding: 0 16px;
     }
 
-    /* Відступ між логотипом та навігацією на планшеті (більший) */
     .header-logo {
         margin-right: 120px;
     }
@@ -903,10 +911,11 @@ a {
         gap: 12px;
     }
 
+    /* Виправлено: line-height: 1.17 на планшеті */
     .contacts-link {
         padding: 0;
         font-size: 12px;
-        line-height: 1.33;
+        line-height: 1.17;
         letter-spacing: 0.04em;
         color: #434455;
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -921,22 +930,23 @@ a {
         display: none;
     }
 
-    /* Hero tablet - виправлено margin-bottom */
+    /* Hero tablet */
     .hero {
         padding: 112px 0;
         max-width: 768px;
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-tablet.jpg');
     }
 
-    /* Retina для планшета */
     @media (min-resolution: 192dpi) {
         .hero {
             background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-tablet@2x.jpg');
         }
     }
 
+    /* Виправлено: margin-bottom: 36px на планшеті */
     .hero-title {
         max-width: 496px;
-        margin-bottom: 24px;
+        margin-bottom: 36px;
         font-size: 56px;
         line-height: 1.07;
     }
@@ -964,7 +974,7 @@ a {
         font-weight: 500;
     }
 
-    /* Team tablet - row-gap більший за column-gap */
+    /* Team tablet - row-gap: 64px */
     .team-container {
         max-width: 584px;
     }
@@ -973,7 +983,7 @@ a {
         flex-direction: row;
         flex-wrap: wrap;
         column-gap: 24px;
-        row-gap: 72px;
+        row-gap: 64px;
         justify-content: center;
     }
 
@@ -982,7 +992,7 @@ a {
         margin: 0;
     }
 
-    /* Portfolio tablet - row-gap більший за column-gap */
+    /* Portfolio tablet */
     .portfolio-list {
         flex-direction: row;
         flex-wrap: wrap;
@@ -1028,7 +1038,6 @@ a {
         padding: 0 15px;
     }
 
-    /* Відступ між логотипом та навігацією на десктопі (менший) */
     .header-logo {
         margin-right: 76px;
     }
@@ -1045,13 +1054,12 @@ a {
         letter-spacing: 0.02em;
     }
 
-    /* Hero desktop */
     .hero {
         padding: 188px 0;
         max-width: 1440px;
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people.jpg');
     }
 
-    /* Retina для десктопа */
     @media (min-resolution: 192dpi) {
         .hero {
             background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people@2x.jpg');
@@ -1062,7 +1070,6 @@ a {
         margin-bottom: 48px;
     }
 
-    /* Features desktop */
     .our-features {
         padding: 120px 0;
     }
@@ -1100,7 +1107,6 @@ a {
         text-align: left;
     }
 
-    /* Team desktop */
     .team-container {
         max-width: 1158px;
     }
@@ -1118,7 +1124,6 @@ a {
         padding: 120px 0;
     }
 
-    /* Portfolio desktop - row-gap більший за column-gap */
     .our-portfolio {
         padding: 120px 0;
     }
@@ -1132,7 +1137,6 @@ a {
         width: calc((100% - 48px) / 3);
     }
 
-    /* Footer desktop */
     .page-footer {
         padding: 100px 0;
     }
