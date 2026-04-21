@@ -999,7 +999,10 @@ a {
         width: calc((100% - 24px) / 2);
     }
 
+    /* ============ FOOTER ПЛАНШЕТ (виправлено) ============ */
     .footer-container {
+        max-width: 584px;
+        margin: 0 auto;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
@@ -1020,6 +1023,7 @@ a {
     }
 
     .footer-subscribe-block {
+        width: auto;
         text-align: left;
     }
 
@@ -1140,6 +1144,7 @@ a {
     }
 
     .footer-container {
+        max-width: 1158px;
         flex-wrap: nowrap;
         gap: 0;
     }
